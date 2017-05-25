@@ -7,23 +7,31 @@
 <body>
 <div id="app">
 
-    <demo my-msg-m="xx" msg2="zz"></demo>
-    <demo my-msg-m="yy" msg2="dd"></demo>
+
+    <demo my-msg-m="xx" msg2="zz">
+            <p slot="title"> 标题</p>
+            <!--<p slot="content">内容</p>-->
+    </demo>
+    <!--<demo my-msg-m="yy" msg2="dd"></demo>-->
 </div>
     <script src="vue.js"></script>
     <script type="text/x-template" id="temp">
     <div>
-        <h1>h1h{{myMsgM}}1h1h1h1h1h1h1</h1>
-        <div>
-            <h1>h1h1h{{myMsgM}}1h1h1h1h1h1h1h</h1>
-        </div>
+        <p>kjkjkjkjkjk</p>
+        <slot name="title">
+            当没有标题时，占位
+        </slot>
+        <h1>hhhhhhhhhhh</h1>
+        <slot name="content">
+            当没有内容时，占位
+        </slot>
     </div>
 </script>
     <script>
         var vm = new Vue({
             el:"#app",
             data:{
-                xx:'3333333',
+                xx:'<p>3333</p>',
                 yy:'1111111'
             },
             components:{
