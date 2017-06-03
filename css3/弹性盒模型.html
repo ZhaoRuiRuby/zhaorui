@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性盒模型</title>
+    <style>
+        #content{
+            height: 500px;
+            /*width: 150px;*/
+            border:2px solid #000;
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+        }
+        #content div{
+            /*width: 100px;*/
+            height: 100px;
+        }
+        #div1{
+            -webkit-box-flex: 2;
+            background: hotpink;
+        }
+        #div2{
+            -webkit-box-flex: 1;
+            background: dodgerblue;
+        }
+        #div3{
+            /*-webkit-box-flex: 1;*/
+            background: mediumpurple;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="div1">
+            dbfgdgd
+        </div>
+        <div id="div2">
+            fwssfds
+        </div>
+        <div id="div3">
+
+        </div>
+    </div>
+</body>
+</html>
