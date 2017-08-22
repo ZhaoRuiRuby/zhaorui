@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zoom</title>
+	<script src='jquery-1.12.4.min.js'></script>
+	<script src='zoom.js'></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			border: 0;
+		}
+		body > div {
+			float: left;
+		}
+		#small-pic{
+			width: 201px;
+			height: 113px;
+			margin: 20px 20px;
+			position: relative;
+		}
+		#small-img{
+			width: 201px;
+			height: 113px;
+		}
+		#drag{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #000;
+			opacity: 0.6;
+			display: none;
+		}
+		#big-pic{
+			width: 201px;
+			height: 113px;
+			/*background: #ccc;*/
+			/*用于初期制作过程观察位置*/
+			display: none;
+			margin: 20px 20px;
+			overflow: hidden;
+			position: relative;
+		}
+		#big-img{
+			/*display: none;*/
+			position: absolute;
+
+		}
+		#mask{
+			width: 201px;
+			height: 113px;
+			position: absolute;
+			z-index: 12;
+		}
+	</style>
+</head>
+<body>
+	<div id="small-pic">
+		<div id="mask"></div>
+		<div id="drag"></div>
+		<img src="000.jpg" alt="" id="small-img">
+	</div>
+	<div id="big-pic">
+		<img src="001.jpg" alt="" id="big-img">
+	</div>
+</body>
+</html>

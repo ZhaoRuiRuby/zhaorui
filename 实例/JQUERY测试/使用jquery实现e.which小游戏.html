@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test 键盘码喷涌效果展示</title>
+</head>
+<!-- 功能需求 随机方向喷涌 喷出的键盘码方向随机，在淡出之前文字处于旋转中 -->
+<body>
+  <script src='jquery-1.12.4.js'></script>
+  <script>
+  $(function(){
+      var w=0;
+      //     $tip=$("<b>");
+      // $tip.css({"z-index":99999,position:"absolute",color:"red",display:"none"}),
+      // $("body").append($tip),
+        //页面创建b标签用来显示数字 和键盘码
+      $(document).on("keypress",function(e){   
+            var num=Math.floor(Math.random()*300),
+                directionL=Math.random()*1200,
+                directionT=Math.random()*400,
+                $tip=$("<b>"),
+                Num=num+"deg";
+            $tip.css({"z-index":99999,position:"absolute",color:"red",display:"none"}),
+            $("body").append($tip),
+            // console.log(direction);
+                // var $x=e.pageX,$y=e.pageY;//获取当前页面坐标
+            $tip.text("+"+ ++w +"-->"+ e.which).css({//数字加1 记录键盘点击次数
+            display:"block",top:'200px',left:600,opacity:1,transform:'rotate('+Num+')'
+                //定位显示 此处为何定位不加px？？加上px后，需要加引号，做字符串处理。 
+            }).stop(0,!1)
+                //stop(stopAll,goToEnd),如果发生多次点击时，要停止上一个动画的执行
+            .animate({top:directionT,left:directionL,opacity:0},2000,function(){$tip.hide() });
+                //后期：可以通过增加随机数来达到随机方向喷放的效果?   
+                //在animate里添加transform:'rotate('+Num+')'不起作用？？ 随机方向通过终点的left和top值确定
+                //注释 ：transform:'rotate('+Num+')' 样式属性值整个为字符串处理！通过定义变量传递参数，需要拼接字符串。
+            var timer = setInterval(function(){
+                var num=Math.floor(Math.random()*300),
+                Num=num+"deg";
+                $tip.css({transform:"rotate(" + Num  + ")"});
+            },200)//setInterval为window下的全局量，直接调用即可！
+                //增加喷涌出后的旋转效果
+                //后续：后期处理增加定时器清除效果，要求不能影响当前运行的定时器。
+            console.log(timer);
+            e.stopPropagation()
+                //防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。为后续做准备
+      });
+});
+  //问题一   喷涌方向均向左侧，思路 direction若是大于零则定义左侧与顶侧  小于零 则定义右侧与底侧
+  //问题二    定时器清除问题。
+</script>
+</body>
+</html>

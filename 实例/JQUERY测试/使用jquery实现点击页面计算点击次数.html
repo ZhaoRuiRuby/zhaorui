@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <script src='jquery-1.12.4.js'></script>
+    <script>
+    $(function(){
+        var w=0;
+        // $tip=$("<b>"),
+        $(document).on("click",function(e){
+            var $tip = $('<div><b></b></div>');
+            $tip.find('b').css('color',"red").end().css({"z-index":99999,background:'orange',border:'1px solid transparent','border-radius':'50%',display:"none",position:"absolute"})
+            $("body").append($tip);//页面创建b标签用来显示数字
+            
+            var $x=e.pageX,$y=e.pageY;//获取点击页面坐标
+            $tip.find('b').text("+"+ ++w);
+            var $width = $tip.width();console.log($width);
+            var $height = $tip.height();console.log($height);
+            if ($width>=$height) {
+                $tip.height($width);//???
+                $height = $width;//上方语句赋值后，$height的值已更改，而之前获取的$height未更改，所以在下方赋值给行高将不出现错误。
+            }else{
+                $tip.width($height);
+            }//判断宽高，赋值，以显示为圆形
+            console.log($height+'after');
+            $tip.css('line-height',$height+"px");
+            $tip.css({//数字加1
+            display:"block",top:$y-20,left:$x-6,opacity:1//定位显示
+            }).stop(!0,!1)
+            .animate({//stop(stopAll,goToEnd),如果发生多次点击时，要停止上一个动画的执行。为后续功能准备。
+            top:0,opacity:0},1500,
+            // function(){$tip.hide()} //此代码注销 ，因为多次点击后会产生大量新生元素，会影响运行速度。
+            
+            function(){$tip.remove()}//提高多次点击后的运行速度，避免过多新元素产生。
+            )
+            e.stopPropagation()//只是为了阻止冒泡泡啊~
+        });
+    });
+</script>
+</body>
+</html>
