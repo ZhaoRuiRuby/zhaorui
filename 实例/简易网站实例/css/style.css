@@ -1,0 +1,369 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul, ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    border: 0;
+}
+body{
+    height: 1000px;
+}
+.wrapper{
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+}
+.left-box img{
+    margin: 20px 10px 0;
+    float: left;
+
+}
+.right-box{
+    width: 100%;
+    text-align: right;
+
+}
+.right-box img{
+    margin: 27px;
+
+}
+/******section開始*******/
+#section{
+    background: url(../img/a88.png);
+    height: 788px;
+    position: relative;
+    
+}
+
+#section h2 {
+    display: block;
+    height: 55px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 55px;
+    padding-top: 80px;
+    color: #fff;
+
+
+
+}
+#section p{
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    padding-top: 20px;
+    color: #fff;
+}
+#section a{
+    display: block;
+    text-align: center;
+    margin: 30px;
+    color: #000;
+}
+#section .box{
+    background: #ffffff;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+#section .box a{
+    height: 46px;
+    line-height: 46px;
+    margin: 20px 0px;
+
+}
+#section img{
+    position: absolute;
+    top:300px;
+    left: 150px;
+    width: 1000px;
+    height: 460px;
+}
+
+
+
+/*******choose开始************/
+#choose{
+    height: 521px;
+    background: #ffffff;
+}
+.placard p{
+    text-align: center;
+    font-size: 1.8rem;
+
+}
+#choose .choose-box{
+    text-align: center;
+    width: 835.5px;
+    height: 256px;
+    margin: 60px 150px;
+
+}
+
+#choose .choose-box li{
+    width: 210px;
+    margin: 0 30px;
+    position: relative;
+
+}
+#choose .choose-box li .low{
+    margin: 0 auto;
+}
+#choose .choose-box li .in{
+    position: absolute;
+    left:70px;
+    top: 40px;
+
+
+}
+#choose .choose-box .one{
+    float: left;
+}
+#choose .choose-box .two{
+    float: left;
+}
+#choose .choose-box .three{
+    float: right;
+}
+#choose .choose-box li>h3{
+    text-align: center;
+    margin: 10px 0;
+
+}
+#choose .choose-box li>span{
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+}
+#choose .box{
+    background: #000;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+#choose a{
+    display: block;
+    text-align: center;
+    margin: 30px;
+    color: #fff;
+    height: 46px;
+    line-height: 46px;
+
+}
+
+/*********move开始**********/
+#move{
+    height: 710px;
+    background: url(../img/d039152147904ee5905deea752c31a72.png);
+}
+#move h2{
+    text-align: center;
+    padding: 60px 0;
+    color: white;
+}
+#move .box{
+    background: #fff;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+#move a{
+    display: block;
+    text-align: center;
+    color: #000;
+    height: 46px;
+    line-height: 46px;
+}
+
+#imge{
+    width: 734px;
+    height: 418px;
+    margin: 0 auto;
+    margin-top: 200px;
+    position: relative;
+}
+#imge .computer {
+    height: 410px;
+    width: 590px;
+    /*background: #000;*/
+    position: absolute;
+    left: -900px;
+    top: -40px;
+    transition: left 2s ease 0s;
+    /*过渡：参与过度的属性 过渡持续时间 过渡方式 国度延迟时间*/
+}
+
+
+#imge .phonee {
+    height: 310px;
+    width: 150px;
+    /*background: #ccc;*/
+    position: absolute;
+    right: -550px;
+    top: 0px;
+    transition: right 2s ease 0s;
+    /*position: relative;*/
+    /*过渡：参与过度的属性 过渡持续时间 过渡方式 国度延迟时间*/
+}
+#imge .wechat{
+    position: absolute;
+    left: -86px;
+    top: 232px;
+}
+#imge .phone{
+    position: absolute;
+    top: 35px;
+}
+
+
+
+
+
+#baidu{
+    height: 512px;
+    background: #ffffff;
+
+}
+#baidu h2{
+    text-align: center;
+    color: #000000;
+    font-size: 30px;
+    padding: 35px;
+}
+#baidu .search{
+    text-align: center;
+
+}
+#baidu .imgs{
+    text-align: center;
+    margin: 20px;
+}
+#baidu .box{
+    background: #000;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+#baidu a{
+    display: block;
+    text-align: center;
+    color: #fff;
+    height: 46px;
+    line-height: 46px;
+    margin: 40px;
+}
+
+
+
+/**************high开始****************/
+#high{
+    height: 810px;
+}
+#high h2{
+    text-align: center;
+    font-size: 30px;
+}
+#high .eg{
+    text-align: center;
+    margin: 60px 0;
+    height: 490px;
+}
+/*#high .eg img{*/
+    /*margin: 20px;*/
+/*}*/
+#high .box{
+    background: #000;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+#high a{
+    display: block;
+    text-align: center;
+    color: #fff;
+    height: 46px;
+    line-height: 46px;
+    margin: 40px;
+}
+
+
+/*******test开始************/
+#test{
+    height: 621px;
+
+
+}
+#test h2{
+    text-align: center;
+    font-size: 30px;
+
+}
+#test img{
+    margin: 60px;
+}
+#test .box{
+    background: #000;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+#test a{
+    display: block;
+    text-align: center;
+    color: #fff;
+    height: 46px;
+    line-height: 46px;
+    margin: 40px;
+}
+/***********footer开始****************8*/
+#footer{
+    background: url(../img/670f1c548d394173a83cfc75a4b1a32b.png);
+    height: 511px;
+    position: relative;
+}
+#footer h2{
+    position: absolute;
+    font-size: 30px;
+    left: 150px;
+    top: 150px;
+}
+#footer span{
+    position: absolute;
+    left: 150px;
+    top: 200px;
+}
+#footer .box{
+    position: absolute;
+    background: #000;
+    width: 180px;
+    height: 46px;
+    top: 50%;
+    margin-top: -23px;
+    left: 50%;
+    margin-left: -90px;
+    /*margin: 0 auto;*/
+    border-radius: 50px;
+    text-align: center;
+}
+#footer .box a{
+    /*display: inline-block;*/
+    color: #fff;
+    height: 46px;
+    line-height: 46px;
+    /*margin: 40px;*/
+   
+}
+
+
