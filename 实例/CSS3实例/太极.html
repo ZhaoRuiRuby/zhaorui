@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太极</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #aa {
+            padding: 10px;
+        }
+
+        #content {
+            border: 1px solid #000;
+            border-right-width: 300px;
+            border-radius: 50%;
+            height: 600px;
+            position: relative;
+            width: 300px;
+        }
+
+        #content > div {
+            position: absolute;
+        }
+
+        #up {
+            background-color: #fff;
+            border: 120px solid #000;
+            border-radius: 50%;
+            height: 60px;
+            left: 151px;
+            top: 0;
+            width: 60px;
+        }
+
+        #down {
+            background-color: #000;
+            border: 120px solid #fff;
+            border-radius: 50%;
+            height: 60px;
+            left: 151px;
+            top: 300px;
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+<div id="aa">
+    <div id="content">
+        <div id="up"></div>
+        <div id="down"></div>
+    </div>
+</div>
+
+</body>
+</html>

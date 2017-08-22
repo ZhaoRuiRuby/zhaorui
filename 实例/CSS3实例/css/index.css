@@ -1,0 +1,200 @@
+/*css reset begin*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 0;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+/*css reset finish*/
+html,body {
+	height: 100%;
+	width: 100%;
+}
+
+h3 {
+	color: #fff;
+	position: absolute;
+	top: 35px;
+	left: 93px;
+}
+/*content begin*/
+#content {
+	background: url(../img/bg1.jpg) 0 0 no-repeat;
+	background-size: cover;
+	width: 100%;
+	padding-top: 50%;
+	position: relative;
+}
+
+#content > div {
+	cursor: pointer;
+	/*height: 50%;*/
+	position: absolute;
+	/*width: 50%;*/
+}
+
+#logo {
+	border: 1px solid #000;
+	border-radius: 50%;
+	left: 10px;
+	overflow: hidden;
+	position: absolute;
+	top: 10px;
+	width: 73px;
+	height: 73px;
+	z-index: 2;
+}
+
+#logo img {
+	height: 100%;
+	opacity: 0.2;
+	transition: opacity 2s linear 0s;
+}
+
+#logo:hover img {
+	opacity: 1;
+}
+
+#my,#she,#past,#future {
+	height: 48%;
+	text-align: center;
+	width: 48%;
+	/*border: 1px solid #000;*/
+}
+
+#my:hover p,#she:hover p,#past:hover p,#future:hover p{
+/*	background: url(../img/a4.jpg);*/
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-size: 48px;
+	transition: font-size 2s linear 0s;
+	animation: run 15s linear 0s infinite;
+}
+
+@keyframes run {
+	0% {
+		background-position: 0 25%;
+	}
+	100% {
+		background-position: 100% 25%;
+	}
+}
+
+#content > div p {
+	font-size: 25px;
+	color: #a98e67;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+#my {
+	left: 0;
+	top: 0;
+	position: relative;
+	
+}
+
+#my:hover p {
+	background-image: url(../img/my.jpg);
+	/*background-position: 0 0;*/
+	text-align: left;
+}
+
+#my:hover p::after {
+	content: '愿你出走半生，归来仍是少年。';
+	font-size: 13px;
+	display: block;
+	width: 40%;
+}
+
+#she {
+	right: 0;
+	top: 0;
+	
+}
+
+#she:hover p {
+	background-image: url(../img/she.jpg);
+	text-align: left;
+}
+
+#she:hover p::after {
+	content: '世间情动，不过，盛夏白瓷梅子汤，碎冰碰壁当啷响。';
+	font-size: 13px;
+	display: block;
+	width: 40%;
+}
+
+#more {
+	background: url(../img/more.jpg);
+	background-size: cover;
+	background-position: center;
+	/*border: 1px solid #000;*/
+	border-radius: 50%;
+	opacity: 0;
+	position: absolute;
+	top: 28%;
+	left: 40%;
+	width: 20%;
+	z-index: 1;
+	/*padding:-top: %;*/
+	height: 40%;
+	transition: opacity 2s linear 0s;
+}
+
+#more:hover {
+	opacity: 1;
+}
+
+#past {
+	left: 0;
+	top: 50%;
+	
+}
+
+#past:hover p {
+	background-image: url(../img/past.jpg);
+	text-align: left;
+}
+
+#past:hover p::after {
+	content: '世间情动，不过，盛夏白瓷梅子汤，碎冰碰壁当啷响。';
+	font-size: 13px;
+	display: block;
+	width: 40%;
+}
+
+#future {
+	/*border: 1px solid #000;*/
+	/*border-right: 0;*/
+	/*border-bottom: 0;*/
+	right: 0;
+	top: 50%;
+	
+}
+
+#future:hover p {
+	background-image: url(../img/future.jpg);
+	text-align: left;
+}
+
+#future:hover p::after {
+	content: '世间安得双全法，不负如来不负卿。';
+	font-size: 13px;
+	display: block;
+	width: 40%;
+}
+/*content finish

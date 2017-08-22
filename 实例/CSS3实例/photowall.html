@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>photowall</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #container {
+            height: 100%;
+            width: 100%;
+            background: url("imgs/bg.jpg") 0 0 repeat;
+            position: relative;
+        }
+
+        #container .img {
+            height: 125px;
+            width: 125px;
+            border: 5px solid #ccc;
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            -webkit-transition: all 2s ease;
+        }
+        #container .img span {
+            height: 125px;
+            width: 125px;
+            display: block;
+            opacity: 0;
+        }
+
+        #prev,#next {
+            height: 80px;
+            width: 40px;
+            top: 50%;
+            margin-top: -40px;
+            position: absolute;
+            display: none;
+        }
+
+        #prev {
+            border-radius: 0 10px 10px 0;
+            background: #ccc url(imgs/prev.png) center center no-repeat;
+            left: 0;
+        }
+
+        #next {
+            border-radius: 10px 0 0 10px;
+            background: #ccc url(imgs/next.png) 50% 50% no-repeat;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    </div>
+    <div id="prev"></div>
+    <div id="next"></div>
+<script>
+    var oContainer = document.getElementById('container');
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+    var iNow = 0;
+    var num = 0;
+    for(var i=0;i<24;i++){
+        var oImg = new Image();
+        oImg.onload = function(){
+            num++;
+            if (num==48){
+                loadSuccess();
+            };
+        };
+        oImg.src = 'imgs/thumbs/'+(i+1)+'.jpg';
+    };
+    for(var i=0;i<24;i++){
+        var oImg = new Image();
+        oImg.onload = function(){
+            num++;
+            if (num==48){
+                loadSuccess();
+            };
+        };
+        oImg.src = 'imgs/'+(i+1)+'.jpg';
+    };
+    var index = 0;
+    var loadSuccess = function(){
+        for(var i= 0;i<4;i++){
+            for(var j=0;j<6;j++){
+//        for(var i=0;i<24;i++){
+//            改为双重for循环，建立行列。
+//        }
+                var oDiv = document.createElement('div');
+                oDiv.className = 'img';
+                oDiv.rowCol = {
+                    row:i,
+                    col:j
+                };
+                oDiv.idx = index;
+                oDiv.onclick = fn;
+                oDiv.innerHTML = '<span></span>';
+                oDiv.style.background = 'url(imgs/thumbs/'+(index+1)+'.jpg)';
+                oContainer.appendChild(oDiv);
+                index++;
+            };
+        };//生成时候，left和top值已经被赋值。下方for循环时候，因为属性值改变触发过渡。
+        var spaceX = (oContainer.offsetWidth-135*6)/7;
+        var spaceY = (oContainer.offsetHeight-135*4)/5;
+        var aDiv = oContainer.getElementsByTagName('div');
+        for(var i = 0;i<aDiv.length;i++){
+            aDiv[i].style.transitionDelay = (aDiv.length-1-i)*100+'ms';
+            aDiv[i].style.left = aDiv[i].rowCol.col*(spaceX+135)+spaceX+'px';
+            aDiv[i].style.top = aDiv[i].rowCol.row*(spaceY+135)+spaceY+'px';
+            aDiv[i].style.WebkitTransform = 'rotate('+(Math.random()-0.5)*40+'deg)';
+        };
+        var iLeft = (oContainer.offsetWidth-127*6)/2;
+        var iTop = (oContainer.offsetHeight-127*4)/2;
+        var flag = true;
+        function fn() {
+            if(flag){
+                for(var i=0;i<aDiv.length;i++){
+                    var oDiv = aDiv[i];
+                    oDiv.style.transitionDelay = '0ms';
+                    oDiv.style.border = '1px solid #ccc';
+                    oDiv.style.left = iLeft+127*oDiv.rowCol.col+'px';
+                    oDiv.style.top = iTop+127*oDiv.rowCol.row+'px';
+                    oDiv.style.WebkitTransform = 'rotate(0deg)';
+                    var oSpan = oDiv.getElementsByTagName('span')[0];
+                    oSpan.style.opacity = 1;
+                    var x = -oDiv.rowCol.col*125;
+                    var y = -oDiv.rowCol.row*125;
+                    oSpan.style.background = 'url(imgs/'+(this.idx+1)+'.jpg) '+x+'px '+y+'px no-repeat';
+                    iNow = this.idx;
+                    oPrev.style.display='block';
+                    oNext.style.display='block';
+                };
+            }else{
+                for(var i=0;i<aDiv.length;i++){
+                    var oDiv = aDiv[i];
+                    oDiv.style.left = oDiv.rowCol.col*(spaceX+135)+spaceX+'px';
+                    oDiv.style.top = oDiv.rowCol.row*(spaceY+135)+spaceY+'px';
+                    oDiv.style.WebkitTransform = 'rotate('+(Math.random()-0.5)*40+'deg)';
+                    var oSpan = oDiv.getElementsByTagName('span')[0];
+                    oSpan.style.opacity = 0;
+                    oDiv.style.border = '5px solid #ccc';
+                    oPrev.style.display='none';
+                    oNext.style.display='none';
+                };
+            };
+            flag = !flag;
+            oPrev.onclick=oNext.onclick=function(){
+                if(this==oPrev){
+                    console.log(iNow);
+                    iNow--;
+                    if(iNow==-1){
+                        iNow = aDiv.length-1;
+                    };
+                } else {
+                    iNow++;
+                    if (iNow==aDiv.length){
+                        iNow = 0;
+                    };
+                };
+                var arr = [];
+                for(var i = 0;i<24;i++){
+                    arr.push(i);
+                };
+                arr.sort(function(){
+                    return Math.random()-0.5;
+                });
+                // 下方6行代码可以通过定时器实现同样的功能
+                // for(var i = 0;i<aDiv.length;i++){
+                //     var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                //     var random = arr[i];
+                //     oSpan.style.transitionDelay = random*10+'ms';
+                //     oSpan.style.backgroundImage = 'url(imgs/'+(iNow+1)+'.jpg)';
+                // }; 
+
+                // var counter = 0
+                // var timer = setInterval(function(){
+                //     // var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                //     var s =arr[counter];
+                //     counter++;
+                //     var oSpan = aDiv[s].getElementsByTagName('span')[0];
+                //     oSpan.style.backgroundImage = 'url(imgs/'+(iNow+1)+'.jpg)';
+                //     if(counter==aDiv.length){
+                //         clearInterval(timer);
+                //     }
+                // },100);
+                // 或者如下代码也可实现同样功能
+                var timer = setInterval(function(){
+                    var num = arr.pop();
+                    var oSpan = aDiv[num].getElementsByTagName('span')[0];
+                    oSpan.style.backgroundImage = 'url(imgs/'+(iNow+1)+'.jpg)';
+                    if(arr.length==0){
+                        clearInterval(timer);
+                    }
+                },100);
+            };
+            
+        };
+
+    }
+</script>
+</body>
+</html>
